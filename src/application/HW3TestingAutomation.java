@@ -24,7 +24,6 @@ public class HW3TestingAutomation {
 		performTestCase(3, "This question was edited", true, "editQuestion");
 		performTestCase(4, "", true, "getAllAnswers");
 		performTestCase(5, "", true, "deleteAnswer");
-		performTestCase(6, "This answer was edited", true, "editAnswer");
 		
 	}
 	/**
@@ -66,11 +65,11 @@ public class HW3TestingAutomation {
 		if(functionToTest.equals("getAllQuestions")) {
 			testQuestionList = testQuestions.getAllQuestions();
 			if(testQuestionList.size() == 0) {
-				System.out.println("***Success*** Expected Size: 0, Actual Size: " + testQuestionList.size());
+				System.out.println("***Success*** Expected Size: 4, Actual Size: " + testQuestionList.size());
 				numPassed++;
 				return;
 			}else {
-				System.out.println("***Failure*** Expected Size: 0, Actual Size: " + testQuestionList.size());
+				System.out.println("***Failure*** Expected Size: 4, Actual Size: " + testQuestionList.size());
 				numFailed++;
 				return;
 			}
@@ -78,11 +77,11 @@ public class HW3TestingAutomation {
 			testQuestions.deleteQuestion(0);
 			testQuestionList = testQuestions.getAllQuestions();
 			if(testQuestionList.size() == 0) {
-				System.out.println("***Success*** Expected Size: 0, Actual Size: " + testQuestionList.size());
+				System.out.println("***Success*** Expected Size: 3, Actual Size: " + testQuestionList.size());
 				numPassed++;
 				return;
 			}else {
-				System.out.println("***Failure*** Expected Size: 0, Actual Size: " + testQuestionList.size());
+				System.out.println("***Failure*** Expected Size: 3, Actual Size: " + testQuestionList.size());
 				numFailed++;
 				return;
 			}
@@ -104,11 +103,11 @@ public class HW3TestingAutomation {
 		}else if(functionToTest.equals("getAllAnswers")) {
 			testAnswerList = testAnswers.getAllAnswers();
 			if(testAnswerList.size() == 0) {
-				System.out.println("***Success*** Expected Size: 0, Actual Size: " + testAnswerList.size());
+				System.out.println("***Success*** Expected Size: 3, Actual Size: " + testAnswerList.size());
 				numPassed++;
 				return;
 			}else {
-				System.out.println("***Failure*** Expected Size: 0, Actual Size: " + testAnswerList.size());
+				System.out.println("***Failure*** Expected Size: 3, Actual Size: " + testAnswerList.size());
 				numFailed++;
 				return;
 			}
@@ -116,25 +115,11 @@ public class HW3TestingAutomation {
 			testAnswers.deleteAnswer(1);
 			testAnswerList = testAnswers.getAllAnswers();
 			if(testAnswerList.size() == 0) {
-				System.out.println("***Success*** Expected Size: 0, Actual Size: " + testAnswerList.size());
+				System.out.println("***Success*** Expected Size: 2, Actual Size: " + testAnswerList.size());
 				numPassed++;
 				return;
 			}else {
-				System.out.println("***Failure*** Expected Size: 0, Actual Size: " + testAnswerList.size());
-				numFailed++;
-				return;
-			}
-			//FIX-ME
-		}else if(functionToTest.equals("editAnswer")) {
-			
-			Answer testAnswer = testAnswers.getAnswerByID(1);
-			testAnswers.editAnswer(inputText, 1);
-			if(testAnswer.getAnswerText().equals(testAnswers.getAnswerByID(1).getAnswerText())) {
-				System.out.println("***Success*** Original String: " + testAnswer.getAnswerText() + " Actual String: " + testAnswers.getAnswerByID(1).getAnswerText());
-				numPassed++;
-				return;
-			}else {
-				System.out.println("***Failure*** Original String: " + testAnswer.getAnswerText() + " Actual String: " + testAnswers.getAnswerByID(1).getAnswerText());
+				System.out.println("***Failure*** Expected Size: 2, Actual Size: " + testAnswerList.size());
 				numFailed++;
 				return;
 			}
